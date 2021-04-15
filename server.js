@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 app.get('/weather', (request, response) => {
   try {
     const allDailyForecasts = weatherData.data.map(day => new DailyForecast(day));
-    response.json(allDailyForecsts);
+    response.json(allDailyForecasts);
   } catch (error) {
     handleErrors(error, response);
   }
