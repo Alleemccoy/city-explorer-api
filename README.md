@@ -21,7 +21,7 @@ We are using JavaScript, .env, our local server, Trello, VS Code and GitHub to c
 I used Ryan Gallaway's lab build out examples to help finish this lab07.
 
 
-Name of feature: city-explorer-api / lab07
+Name of feature: lab07
 
 Estimate of time needed to complete: 2 days
 
@@ -30,3 +30,14 @@ Start time: April 10th assignment due, starting April 14th
 Finish time: 10:15pm 4/14/2021
 
 Actual time needed to complete: 2-3 days
+
+
+Name of feature: lab08
+
+Estimate of time needed to complete: 2 days
+
+Start time: April 13 2021
+
+Finish time: TBD
+
+Actual time needed to complete: TBD
