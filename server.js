@@ -12,16 +12,23 @@ app.use(cors());
 const PORT = process.env.PORT || 3001;
 
 app.get('/weather', (request, response) => {
-  const alldailyForecasts = weatherData.data.map(day => new DailyForecast(day));
-
-
-  response.send(alldailyForecasts);
+  try {
+    const allDailyForecasts = weatherData.data.map(day => new DailyForecast(day));
+    response.json(allDailyForecsts);
+  } catch (error) {
+    handleErrors(error, response);
+  }
 });
+
 
 function DailyForecast(day) {
   this.date = day.datetime;
   this.description = day.weather.description;
 }
 
+function handleErrors(error, response) {
+  response.status(500).send('Internal Error: 500');
+
+}
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
