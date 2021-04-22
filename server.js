@@ -4,7 +4,7 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 
-const weatherData = require('./data/weather.json');
+// const weatherData = require('./data/weather.json');
 
 const app = express();
 app.use(cors());
@@ -12,13 +12,13 @@ app.use(cors());
 const PORT = process.env.PORT || 3001;
 
 app.get('/weather', (request, response) => {
-  try {
+  superAgent.get;
     const allDailyForecasts = weatherData.data.map(day => new DailyForecast(day));
     response.json(allDailyForecasts);
   } catch (error) {
     handleErrors(error, response);
   }
-});
+);
 
 
 function DailyForecast(day) {
