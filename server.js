@@ -25,8 +25,24 @@ app.get('/weather', (request, response) => {
       console.error(error);
       response.status(500).send('Server error');
     });
-  // } catch (error) {
-  //   handleErrors(error, response);
+}
+);
+
+app.get('/movies', (request, response) => {
+  superagent.get('https://api.themoviedb.org/3/search/movie')
+    .query({
+      api_key: process.env.MOVIE_API_KEY,
+      query: request.query.city
+    })
+    .then(movieInfo => {
+      let results = movieInfo.body.results.map(selected => new Film(selected));
+      console.log(results);
+      response.json(results);
+    })
+    .catch(error => {
+      console.error(error);
+      response.status(500).send('Server error');
+    });
 }
 );
 
@@ -36,9 +52,9 @@ function DailyForecast(day) {
   this.description = day.weather.description;
 }
 
-// function handleErrors(error, response) {
-//   response.status(500).send('Internal Error: 500');
-
-// }
+function Film(selected) {
+  this.title = selected.title;
+  this.description = selected.overview;
+}
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
